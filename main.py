@@ -22,19 +22,20 @@ from block_pb2 import Header, Transaction
 from endpoint_pb2_grpc import CommandServiceStub
 from primitive_pb2 import Signature
 import config
+from shell import Shell
 
 
-def main():
-    chan = grpc.insecure_channel(config.TORII_HOST + ":" + str(config.TORII_PORT))
-    stub = CommandServiceStub(chan)
+# def main():
+    # chan = grpc.insecure_channel(config.TORII_HOST + ":" + str(config.TORII_PORT))
+    # stub = CommandServiceStub(chan)
     # tx = block_pb2.Transaction(header=block_pb2.Header())
-    pub = b"fed5"
-    sig = Signature(pubkey=pub, signature=b"1234abcdef")
-    hdr = Header(created_time=int(time()), signature=sig)
-    meta = Transaction.Meta(creator_account_id=pub, tx_counter=randint(0, 2**32-1))
-    body = Transaction.Body
+    # pub = b"fed5"
+    # sig = Signature(pubkey=pub, signature=b"1234abcdef")
+    # hdr = Header(created_time=int(time()), signature=sig)
+    # meta = Transaction.Meta(creator_account_id=pub, tx_counter=randint(0, 2**32-1))
+    # body = Transaction.Body
     # stub.Torii
 
 
 if __name__ == '__main__':
-    main()
+    Shell().cmdloop()

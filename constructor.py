@@ -28,7 +28,7 @@ from random import randint
 # def create_account(info: info.Info, name: str):
 #     return CreateAccount(account_name=name, domain_id=info.domain_id, main_pubkey=info.pubkey)
 
-def create_transaction(info: info.Info, comms: List[(str, str)]):
+def create_transaction(info: info.Info, comms: List[Tuple[str, str]]):
     tx = Transaction()
 
     commands = []

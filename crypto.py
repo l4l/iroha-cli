@@ -15,6 +15,7 @@
 
 import ed25519
 import hashlib, sha3
+from binascii import unhexlify
 
 
 def create_keypair():
@@ -39,3 +40,9 @@ def hash(b: bytes) -> bytes:
     h = hashlib.sha3_256
     h.update(b)
     return h.digest()
+
+def dump(key: bytes) -> bytes:
+    return key.to_ascii(encoding='hex')
+
+def undump(key: bytes) -> bytes:
+    return unhexlify(key)
